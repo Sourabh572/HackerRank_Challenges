@@ -1,0 +1,18 @@
+def minion_game(string):
+    n = string
+    Kevin =0
+    Stuart =0
+    count=len(n)+1
+    for x in range(len(n)):
+        count -=1
+        if n[x]=='A' or n[x]=='E' or n[x]=='I' or n[x] =='O' or n[x] == 'U':
+            Kevin +=count
+        else:
+            Stuart +=count
+
+    if Kevin> Stuart:
+        print("Kevin "+ str(Kevin))
+    elif Stuart> Kevin:
+        print("Stuart " +str(Stuart))
+    elif Stuart==Kevin:
+        print("Draw")
