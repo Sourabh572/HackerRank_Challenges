@@ -1,0 +1,5 @@
+def merge_the_tools(string, k):
+    f = int(len(string)/k)
+    for x in range(f):
+        m=list(dict.fromkeys(string[(k*x):k*(x+1)]))
+        print("".join(m))
