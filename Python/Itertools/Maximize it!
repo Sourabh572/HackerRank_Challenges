@@ -1,0 +1,16 @@
+from itertools import product 
+n,M = map(int,input().split())
+N =[]
+
+def result(lst):
+    rem = 0
+    for x in range(len(lst)):
+        sum = 0
+        for y in range(n): sum +=pow(lst[x][y],2)
+        if (sum%M)> rem:   rem = sum%M
+    print(int(rem))
+for x in range(n):
+    a = list(map(int,input().split()))[1:]
+    N.append(a)
+P = list(product(*N))        
+result(P)
