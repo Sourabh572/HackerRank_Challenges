@@ -1,0 +1,10 @@
+for x in range(int(input())):
+    m=list(input())
+    up,dig=0,0
+    if len(set(m))!= len(m) or len(m)!=10: print('Invalid')
+    elif ''.join(m).isalnum():
+        for x in m:
+            if x.isupper():up+=1
+            if x.isdigit():dig+=1
+        if up>1 and dig>2: print('Valid')
+        else: print('Invalid')
