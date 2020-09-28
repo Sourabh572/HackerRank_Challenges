@@ -1,0 +1,16 @@
+def biggerIsGreater(w):
+    n = len(w)
+    for i in range(n):
+        if w[n-i-1]>w[n-i-2]:
+            
+            x = sorted(w[n-i-2:])
+            
+            for j in range(len(x)):
+                if x[j] > w[n-i-2]:
+                    w = w[:n-i-2]+ x[j]
+                    x.pop(j)
+                    w+= "".join(x)
+                    return w
+                    break
+            break
+    if i == n-1 : return "no answer"
