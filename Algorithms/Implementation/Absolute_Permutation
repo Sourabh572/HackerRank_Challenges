@@ -1,0 +1,13 @@
+def absolutePermutation(n, k):
+    if k == 0:
+        l = [x+1 for x in range(n)]
+    elif n%(k*2) ==0:
+        l=[0]*n
+        for x in range(n//(k*2)):
+            for y in range(k):
+                l[(x*2)*k+y] = (x*2+1)*k+y+1
+            for y in range(k):
+                l[(x*2+1)*k+y] = (x*2)*k+y+1
+    else:
+        l = [-1]  
+    return l
