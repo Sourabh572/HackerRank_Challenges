@@ -1,0 +1,7 @@
+import re
+for _ in range(int(input())):
+    a = input()
+    if re.match(r'[789]\d{9}',a) and len(a) == 10: 
+        print('YES')
+    else:
+        print('NO')
