@@ -1,0 +1,13 @@
+n= int(input())
+thislist = []
+thisdict ={}
+for x in range(n):
+    m = input()
+    if m in thisdict:
+        thisdict[m] += 1
+    else:
+        thisdict[m] = 1
+        
+print(len(thisdict))
+for x in thisdict:
+    print(thisdict[x], end =" ")
