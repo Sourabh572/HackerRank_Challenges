@@ -1,0 +1,9 @@
+import itertools
+a = int(input())
+b = list(map(str,input().split()))
+c = int(input())
+d = list(itertools.combinations(b,c))
+counter = 0
+for word in d:
+    if 'a' in word: counter +=1
+print("{:6.4f}".format(counter/len(d)))
