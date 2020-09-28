@@ -1,0 +1,41 @@
+def highestValuePalindrome(s, m, k):
+    def make9(p):
+        l[p] ='9'
+        global k
+        k-=1
+    
+    l = [x for x in s]
+    uneq = 0
+
+    for x in range(m//2):
+        if l[x] != l[m-x-1]: 
+            uneq+=1
+
+    if k < uneq:
+        ans =str(-1)
+    else:
+        for x in range(m//2):
+            if l[x]==l[m-x-1] and l[x]!='9' and k > uneq+1 :
+                make9(x)
+                make9(m-x-1)
+
+            elif l[x]!=l[m-x-1]:
+                if k > uneq:
+                    if l[x]<l[m-x-1]:
+                        make9(x)
+                        if l[m-x-1]!='9': make9(m-x-1)    
+                    elif l[x]>l[m-x-1]:
+                        make9(m-x-1)
+                        if l[x]!='9': make9(x)
+                    uneq -=1
+
+                elif k == uneq:
+                    if l[x]<l[m-x-1]:
+                        l[x] = l[m-x-1]
+                    elif l[m-x-1]<l[x]:
+                        l[m-x-1] = l[x]
+                    k-=1
+                    uneq -=1
+        if k and m%2: make9(m//2)
+        ans = ''.join(l)
+    return ans
