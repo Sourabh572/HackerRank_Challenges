@@ -1,0 +1,12 @@
+s = list(input())
+lower,upper,even,odd = [],[],[],[]
+for x in s:
+    if x.isalpha() and x.islower(): lower.append(x)
+    if x.isalpha() and x.isupper(): upper.append(x)
+    if x.isdigit() and int(x)%2==0: even.append(x)
+    if x.isdigit() and int(x)%2!=0: odd.append(x)
+lower.sort()
+lower.extend(sorted(upper))
+lower.extend(sorted(odd))
+lower.extend(sorted(even))
+print("".join(lower))
