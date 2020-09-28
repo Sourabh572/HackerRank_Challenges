@@ -1,0 +1,22 @@
+def climbingLeaderboard(scores, alice):
+    alice_rank=[]
+    scores = sorted(list(set(scores)),reverse=True)
+    j = -1
+    n =len(scores)
+    for i in alice:
+
+        new_rank = False
+        while new_rank == False:
+            if i< scores[j]: 
+                alice_rank.append(n+j+2)
+                new_rank =True
+            elif i == scores[j]:
+                alice_rank.append(n+j+1)
+                new_rank =True
+            elif i>scores[j]:
+                j-=1
+                if abs(j)>n :
+                    j+=1
+                    alice_rank.append(1)
+                    new_rank=True
+     return alice_rank
