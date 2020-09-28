@@ -1,0 +1,5 @@
+import re
+for _ in range(int(input())):
+    lne = input()
+    color = re.findall(r'(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3})',lne[1:])
+    if color: print(*color,sep='\n')
