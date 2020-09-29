@@ -1,0 +1,31 @@
+cmax = n+1
+  cmin = 0
+  rmax = n+1
+  rmin = 0
+  d1 = n-r_q if r_q>c_q else n-c_q
+  if (n-r_q)<(c_q-1): d2 = n-r_q
+  else : d2 = c_q-1
+  d3 = r_q-1 if r_q<c_q else c_q-1
+  if (n-c_q)<(r_q-1): d4 = n-c_q
+  else : d4 = r_q-1
+
+  for x in obstacles:
+      if r_q ==x[0]:
+          if x[1]>c_q and x[1]<cmax: cmax = x[1]
+          if x[1]<c_q and x[1]>cmin: cmin = x[1]
+      elif c_q ==x[1]:
+          if x[0]>r_q and x[0]<rmax: rmax = x[0]
+          if x[0]<r_q and x[0]>rmin: rmin = x[0]
+      elif abs(x[0]-r_q)==abs(x[1]-c_q):
+          i = x[0]-r_q
+          j = x[1]-c_q
+          if i==j and i>0 and i<d1:
+              d1 = i-1
+          elif i==j and i<0 and abs(i)<d3:
+              d3 = abs(i)-1
+          elif i!=j and i>0 and i<d2:
+              d2 = i-1
+          elif i!=j and i<0 and abs(i)<d4:
+              d4 = abs(i)-1
+
+  count = cmax-cmin+rmax-rmin-4+d1+d2+d3+d4
